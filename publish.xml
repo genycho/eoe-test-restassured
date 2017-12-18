@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<project name="common" basedir=".">
+
+	<property name="test.report.dir" value="./target/surefire-reports"/>
+
+	<!--<target name="clean">
+		<delete dir="${test.report.dir}" />
+		<mkdir dir="${test.report.dir}" />
+	</target>-->
+
+	<target name="publish">
+		<delete dir="${test.report.dir}/junithtml" />
+		<mkdir dir="${test.report.dir}/junithtml" />
+		<junitreport>
+			<fileset dir="${test.report.dir}">
+				<include name="TEST-*.xml" />
+			</fileset>
+			<report format="frames" styledir="." todir="${test.report.dir}/junithtml"/>
+		</junitreport>
+	</target>
+
+</project>
